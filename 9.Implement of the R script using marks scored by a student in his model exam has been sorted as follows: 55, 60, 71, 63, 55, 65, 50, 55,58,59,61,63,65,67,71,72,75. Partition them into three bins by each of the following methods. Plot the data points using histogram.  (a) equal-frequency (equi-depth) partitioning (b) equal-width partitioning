@@ -1,0 +1,28 @@
+# Given data
+marks <- c(55, 60, 71, 63, 55, 65, 50, 55, 58, 59, 61, 63, 65, 67, 71, 72, 75)
+
+# Sort the data
+marks <- sort(marks)
+
+# Number of bins
+num_bins <- 3
+
+# (a) Equal-Frequency Partitioning
+bin_size <- length(marks) / num_bins
+equal_freq_bins <- split(marks, ceiling(seq_along(marks) / bin_size))
+
+# (b) Equal-Width Partitioning
+min_val <- min(marks)
+max_val <- max(marks)
+bin_width <- (max_val - min_val) / num_bins
+equal_width_bins <- cut(marks, breaks=seq(min_val, max_val, by=bin_width), include.lowest=TRUE)
+
+# Print results
+cat("Equal-Frequency Bins:\n")
+print(equal_freq_bins)
+cat("\nEqual-Width Bins:\n")
+print(table(equal_width_bins))
+
+# Plot histogram
+hist(marks, breaks=seq(min_val, max_val, by=bin_width), col="lightblue",
+     main="Histogram of Student Marks", xlab="Marks", ylab="Frequency", border="black")
