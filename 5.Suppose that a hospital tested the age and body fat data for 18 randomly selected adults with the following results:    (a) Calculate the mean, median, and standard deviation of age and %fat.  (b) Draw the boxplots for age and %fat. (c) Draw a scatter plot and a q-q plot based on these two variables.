@@ -1,0 +1,22 @@
+# Given data
+age_intervals <- c("1-5", "5-15", "15-20", "20-50", "50-80", "80-110")
+frequency <- c(200, 450, 300, 1500, 700, 44)
+
+# Compute cumulative frequency
+cumulative_frequency <- cumsum(frequency)
+
+# Total number of observations
+N <- sum(frequency)
+
+# Find median class (N/2 = 1597)
+median_class_index <- which(cumulative_frequency >= N/2)[1]
+
+# Extract values
+L <- c(1, 5, 15, 20, 50, 80)[median_class_index]  # Lower bound
+F <- ifelse(median_class_index == 1, 0, cumulative_frequency[median_class_index - 1])
+f <- frequency[median_class_index]
+h <- c(4, 10, 5, 30, 30, 30)[median_class_index]  # Class width
+
+# Compute median
+median_value <- L + ((N/2 - F) / f) * h
+print(median_value)
