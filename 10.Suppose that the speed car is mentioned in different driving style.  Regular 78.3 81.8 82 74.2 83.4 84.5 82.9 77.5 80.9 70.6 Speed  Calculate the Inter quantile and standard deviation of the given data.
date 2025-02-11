@@ -1,0 +1,14 @@
+# Given car speed data
+speed <- c(78.3, 81.8, 82, 74.2, 83.4, 84.5, 82.9, 77.5, 80.9, 70.6)
+
+# Compute Interquartile Range (IQR)
+Q1 <- quantile(speed, 0.25)  # First quartile (25th percentile)
+Q3 <- quantile(speed, 0.75)  # Third quartile (75th percentile)
+IQR_value <- Q3 - Q1
+
+# Compute Standard Deviation
+std_dev <- sd(speed)
+
+# Print results
+cat("Interquartile Range (IQR):", IQR_value, "\n")
+cat("Standard Deviation:", std_dev, "\n")
