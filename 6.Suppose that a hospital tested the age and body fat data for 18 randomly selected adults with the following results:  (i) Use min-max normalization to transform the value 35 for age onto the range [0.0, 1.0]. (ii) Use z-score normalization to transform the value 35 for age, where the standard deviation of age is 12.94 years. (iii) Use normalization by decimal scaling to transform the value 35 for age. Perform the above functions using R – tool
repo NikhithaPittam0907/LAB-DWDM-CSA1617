@@ -1,0 +1,21 @@
+# Given data
+X <- 35
+X_min <- 18
+X_max <- 90
+mean_age <- 45.2
+std_dev <- 12.94
+
+# Min-Max Normalization
+min_max_norm <- (X - X_min) / (X_max - X_min)
+
+# Z-Score Normalization
+z_score_norm <- (X - mean_age) / std_dev
+
+# Decimal Scaling Normalization
+j <- ceiling(log10(X_max))
+decimal_scaling_norm <- X / (10^j)
+
+# Print results
+cat("Min-Max Normalization:", min_max_norm, "\n")
+cat("Z-Score Normalization:", z_score_norm, "\n")
+cat("Decimal Scaling Normalization:", decimal_scaling_norm, "\n")
