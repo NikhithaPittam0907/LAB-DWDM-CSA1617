@@ -1,0 +1,15 @@
+data(AirPassengers)
+
+# Convert the AirPassengers time series to a numeric vector
+airpassengers_data <- as.numeric(AirPassengers)
+
+# Create the histogram
+hist(
+  airpassengers_data,
+  breaks = c(100, 200, 350, 500, 650, 700),
+  main = "Histogram of AirPassengers Data",
+  xlab = "Number of Passengers",
+  ylab = "Frequency",
+  col = "skyblue",
+  border = "black"
+)
